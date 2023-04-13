@@ -1,15 +1,10 @@
 # vba-challenge2
 module 2 assignment
 
-Sub StockAssignment()
+    Sub StockAssignment()
 
-'create column for 'ticker symbol'
-'create column for 'total stock volume'
-'create column for 'yearly change ($)'
-'create column for 'percent change'
-
-  For Each ws In ThisWorkbook.Worksheets
-  ws.Activate
+    For Each ws In ThisWorkbook.Worksheets
+    ws.Activate
 
 
     ws.Range("I1").Value = "ticker symbol"
@@ -24,24 +19,24 @@ Sub StockAssignment()
     
     
 
-'set variables
-  Dim Ticker As String
+  
+    Dim Ticker As String
 
-  Dim VolumeTotal As LongLong
-  VolumeTotal = 0
+    Dim VolumeTotal As LongLong
+    VolumeTotal = 0
 
-  Dim OpenPrice As Double
-  Dim ClosePrice As Double
-  Dim YearlyChange As Double
+    Dim OpenPrice As Double
+    Dim ClosePrice As Double
+    Dim YearlyChange As Double
 
-  Dim StockTable As Integer
-  StockTable = 2 'for row 2
+    Dim StockTable As Integer
+    StockTable = 2 'for row 2
 
-  LastRow = ws.Cells(Rows.Count, 1).End(xlUp).Row
+    LastRow = ws.Cells(Rows.Count, 1).End(xlUp).Row
 
 
 
-  For i = 2 To LastRow
+    For i = 2 To LastRow
 
     If ws.Cells(i + 1, 1).Value <> ws.Cells(i, 1).Value Then
         Ticker = ws.Cells(i, 1).Value
@@ -98,17 +93,22 @@ Sub StockAssignment()
     
         
     
-  Next i
+    Next i
 
 
-  ws.Range("Q2").Value = "%" & WorksheetFunction.Max(ws.Range("L2:L" & LastRow)) * 100
-  ws.Range("Q3").Value = "%" & WorksheetFunction.Min(ws.Range("L2:L" & LastRow)) * 100
-  ws.Range("Q4").Value = WorksheetFunction.Max(ws.Range("J2:J" & LastRow))
-
-
-Next ws
+    ws.Range("Q2").Value = "%" & WorksheetFunction.Max(ws.Range("L2:L" & LastRow)) * 100
+    ws.Range("Q3").Value = "%" & WorksheetFunction.Min(ws.Range("L2:L" & LastRow)) * 100
+    ws.Range("Q4").Value = WorksheetFunction.Max(ws.Range("J2:J" & LastRow))
 
 
 
-End Sub
+
+
+    Next ws
+
+
+
+    End Sub
+
+
 
